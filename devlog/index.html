@@ -266,7 +266,7 @@
         <li class="md-nav__item">
   <a href="#2025-07-12-a-solid-foundation" class="md-nav__link">
     <span class="md-ellipsis">
-      2025-07-12 | A Solid Foundation
+      [2025-07-12] A Solid Foundation
     </span>
   </a>
   
@@ -275,7 +275,7 @@
         <li class="md-nav__item">
   <a href="#2025-06-13-my-first-real-hurdle" class="md-nav__link">
     <span class="md-ellipsis">
-      2025-06-13 | My First Real Hurdle
+      [2025-06-13] My First Real Hurdle
     </span>
   </a>
   
@@ -284,7 +284,7 @@
         <li class="md-nav__item">
   <a href="#2025-06-11-first-day-of-logging" class="md-nav__link">
     <span class="md-ellipsis">
-      2025-06-11 | First Day of Logging
+      [2025-06-11] First Day of Logging
     </span>
   </a>
   
@@ -327,7 +327,7 @@
         <li class="md-nav__item">
   <a href="#2025-07-12-a-solid-foundation" class="md-nav__link">
     <span class="md-ellipsis">
-      2025-07-12 | A Solid Foundation
+      [2025-07-12] A Solid Foundation
     </span>
   </a>
   
@@ -336,7 +336,7 @@
         <li class="md-nav__item">
   <a href="#2025-06-13-my-first-real-hurdle" class="md-nav__link">
     <span class="md-ellipsis">
-      2025-06-13 | My First Real Hurdle
+      [2025-06-13] My First Real Hurdle
     </span>
   </a>
   
@@ -345,7 +345,7 @@
         <li class="md-nav__item">
   <a href="#2025-06-11-first-day-of-logging" class="md-nav__link">
     <span class="md-ellipsis">
-      2025-06-11 | First Day of Logging
+      [2025-06-11] First Day of Logging
     </span>
   </a>
   
@@ -369,7 +369,7 @@
 
 <h1 id="fateless-dungeon-progress-report">Fateless Dungeon Progress Report</h1>
 <p>This is a devlog to keep track of what my programming journey has been like for <a href="../"><strong>Fateless Dungeon</strong></a>. To read everything in order, start from the very bottom and make your way up. Latest information is just below.</p>
-<h2 id="2025-07-12-a-solid-foundation">2025-07-12 | A Solid Foundation</h2>
+<h2 id="2025-07-12-a-solid-foundation">[2025-07-12] A Solid Foundation</h2>
 <p>It's been a while, but I think I got a proper and solid skeleton created. Or at least, the concept is down. I've yet to actually do the programming, but honestly? With how I'm rebuilding this system, it was very necessary to take a step back and really get a good idea as to how this system is suppose to work fundamentally. I've been on Google Sheets, writing down a bunch of mathematical equations that should line up with the philosophy and Fateless Dungeon. And honestly? This looks promising.</p>
 <p>One of the main issues I had to resolve was by figuring out how to represent reality with math. Truth be told, you can't honestly replicate reality through manmade measurements alone. That's why we have an AI to interpret these things for us: Through narrative, not numbers. So everything I talked about in the previous devlog? It's still relevant and it's working even better. What I've built so far builds upon the Core Stat Framework I have for Fateless Dungeon.</p>
 <p>In my previous log, I believe I covered <code>Resilience</code> a little bit. These are your internalized defenses, and they dictate the "defense" of your Core Stats' integrity. I've refined that process further overtime by adding three more variables called "States" to be read by the AI. "Combat" links to <code>BODY</code>, "Focus" to <code>MIND</code>, and "Morale" to <code>SOUL</code>. This is an AI readable float from <code>0.0</code> to <code>1.0</code>. So instead of making <code>Resilience</code> AI readahble, <code>Resilience</code> will only be used to calculate your <code>Resilience</code>.</p>
@@ -379,7 +379,7 @@
 <p>Now let's look at the formulas I've created to regulate all of this. In order to determine probability of success, we have <code>Strength</code> vs <code>Dexterity</code>. Our formula? <code>=Strength/(Strength+Dexterity*Resilience)</code>. At a Resilience of <code>0.8</code> (high Combat state), we have a <code>0.556</code> chance of landing a strike. The magnitude of integrity loss? <code>=(Strength/Dexterity)/(Threshold*Resilience)</code> which, at Threshold <code>5.1</code> and Resilience <code>0.8</code> is going to be <code>0.245</code> "damage" or integrity loss.</p>
 <p>Now there's one more mechanic I've created. Not all actions are going to be "Actor Stat Vs Target Stat", things can get nuanced. What if you're striking an opponent and you're empowered by your Faith? You have a high Morale and you know you can do it. No, you MUST do it, it is your mission. This is a mechanic that is similar to Fate Core's evoked skills or talents, but there's mathematical backing behind it. So let's take a loot at this formula and assume the "Chance" or "Magnitude" of your attack is now a new variable, "Result". We have <code>=Result+sqrt(Strength*Faith)*State*0.25</code>. The <code>sqrt()</code> function is basically the square root of <code>0.33*0.33</code>, and the "State" we're factoring in is Morale at <code>0.8</code>. Notice how I used the "State" and not the "Resilience"? But at the same time, the result is scaled off of how high Morale is. The higher it is, the greater the magnitude. If your Morale is low, your Faith will do very little to strengthen your resolve. Immersive, innit? Lastly, this balanced as well by doing active damage to your own Integrity. So, the difference between the normal move and the empowered move it <code>0.07</code>. You do 7% more integrity damage, but you also lose 7% integrity to either <code>BODY</code> or <code>SOUL</code>. (The AI will be the one to determine which integrity pool to draw from.) In addition, the higher your Sub Stats are, the greater this effect will be.</p>
 <p>And so, with all of that working together, I believe we have a solid skeleton that we could build up upon and maybe even tweak later on, because the most important part is that the math is aligned in a way that <em>represents</em> humanity. It doesn't need to be accurate. It just needs to make sense. For now, I am going to need to recreate the mathematics of this Google Sheet into Python. Wish me luck, guys.</p>
-<h2 id="2025-06-13-my-first-real-hurdle">2025-06-13 | My First Real Hurdle</h2>
+<h2 id="2025-06-13-my-first-real-hurdle">[2025-06-13] My First Real Hurdle</h2>
 <p>I've made a pretty big breakthrough in my system's design philosophy, but it's also a pretty big hurdle that's going to take some time to really sort out, plan, test, apply, etc. So, this breakthrough didn't happen programmically, but it did happen in my blueprints. I strongly believe my "blueprints" are feasible goals that can be achieved. By me? I don't know, but I'll damn well try.</p>
 <p>So, first and foremost, I've been planning out this system for a while. The core philosophy of Fateless Dungeon is to rebuild TTRPGs from the ground up and focus on a narrative-first roleplaying experience. With that in mind, I had to really think about what my primary stats should all look like and how to define them. This is a rough template for that, but the core idea is to capture what it means to be a person. We have a Body, we have a Mind, and we definitely have a Soul too. The point of the Substats is to define what our primary stats (Body, Mind, Soul) should encompass. Clearly, this doesn't cover everything, but there are merely representations.</p>
 <p>⚖️ Core Stat Framework for Fateless Dungeon
@@ -406,7 +406,7 @@
 <p>That's actually not where it ends, because this could become so much more modular and narratively nuanced. This next part is me taking a page from Fate Core's physical and stress system. Here, I'm evolving it further. I think having a "health pool" can be entirely replaced with yet another universal, modular, and nuanced system. So, what exactly is the Charisma and sexy dress dealing damage to? Let me break it down once again by going back a few steps, just how I did in the previous paragraph.</p>
 <p>Think of your Body as a health pool. The more damage you take, the closer you'll be closer to dying. If you get punched while in peak condition, it won't hurt nearly as bad compared to if you get punched when you've already got bruises all over and your body is worn down. When you start getting that nuanced, it's no longer a health pool; it becomes more like an integrity system. As the Body sustains more damage, the more susceptible you are to feeling that damage. At this point, health is no longer a single float, but a vector now. The first float determinines the "capacity" or how close to death you are, and then the second float being how resilient to damage you are. If your arm is broken, it's going to hurt way more to get punched in the arm, possibly doing even more damage than it should have. This isn't limited to Body either. Mind and Soul can have just the same treatment. You persuade a guard to let you get through. You try to butter him up with a story to see if he'll "chip away" enough before you ask the big question of, "Will you let me through?" If his mental "capacity" is low enough, he may give in and let you through. If not, he will remain resolute and continue guarding. If you try to lie, but get caught in the act, he'll stop trusting you nearly as much, thus increasing his "resilience" by a tenfold, likely not you through at all at the rate you're going. In this context, his mental integrity is shifting around and changing based on context. And a lot of this context will come from different stats that constantly cross reference each other depending on the situation.</p>
 <p>So, when this integrity and skill check system came to mind, it really made me think about how this is all going to play out, especially when I thought of a categorized skill checking system that would get further nuanced. Just imagine lifting a rock. That's as simple as you can get with any skill check. But let's think about how nuanced lifting can get. Take Willpower, it can influence Strength despite being in the Mind category, but Body remains to be the core of this skill check. We can go deeper, Faith. Faith is a Soul stat. It's not Body or Mind. This is where it starts getting contextual. "Why are you lifting the rock" becomes a variable that is either turned on or off. Maybe your comrade is getting crushed underneath it. Maybe your undying love for them is what pushes you over the edge. Perhaps you are on a mission in the name of God, and you're able to tap into a resource most normal people cannot without a strong Faith in something, be that a concept or another person. I don't think this simple skill check stops there either. There's the question of "what" gets changed by adding in Willpower or Faith. Do you simply gain the ability to lift more? Or perhaps it adds resilience to your integrity score? If your Body is damaged, it becomes harder to lift. Perhaps Willpower and Faith doesn't just will you lift more weight, it wills you to tap into your potential. Don't forget, integrity is likely to be a vector that has more than just a capacity, but a resilience stat. Body Mind and Soul are all definitely going to have an integrity vector, and they will all play into each other.</p>
-<h2 id="2025-06-11-first-day-of-logging">2025-06-11 | First Day of Logging</h2>
+<h2 id="2025-06-11-first-day-of-logging">[2025-06-11] First Day of Logging</h2>
 <p>Hello, I'm August. I started this project not too long ago, but I made many different discoveries and realizations on the way. Python and ChatGPT has been my bestfriends and I'm learning so much every passing day. I don't know what came over me, but I just had this idea to reinvent the wheel for tabletop roleplaying games. Sure enough, here I am.</p>
 
 <p>I have little to no history or experience with programming with Python or Large Language Models (LLMs), let alone any language for that matter. Even programming with prompts is foreign to me, yet I'm here trying to build an entire prompt architecture that is largely supported by a Python backend. If you read the <a href="../"><strong>main page</strong></a>, you'd kind of know what I'm talking about already. I'm not really getting help with this project either other than using ChatGPT. The more I used it, the more hurdles I realized I had to overcome, the more impressed I became with technology. AI is amazing, but... moreso the human brain.</p>
