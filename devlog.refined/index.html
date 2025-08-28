@@ -1,0 +1,824 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../index.refined/">
+      
+      
+        <link rel="next" href="../glossary.refined/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Devlog (Refined) - Fateless Dungeon</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fateless-dungeon-devlog" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Fateless Dungeon" class="md-header__button md-logo" aria-label="Fateless Dungeon" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Fateless Dungeon
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Devlog (Refined)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Fateless Dungeon" class="md-nav__button md-logo" aria-label="Fateless Dungeon" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Fateless Dungeon
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Devlog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AI-Refined Mirror
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            AI-Refined Mirror
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.refined/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mirror Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Devlog (Refined)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Devlog (Refined)
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2025-07-12-a-solid-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      [2025-07-12] A Solid Foundation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2025-07-12] A Solid Foundation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#states-vs-resilience" class="md-nav__link">
+    <span class="md-ellipsis">
+      States vs Resilience
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integrity-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrity System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#math-in-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math in Action
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#empowerment-mechanic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Empowerment Mechanic
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2025-06-13-my-first-real-hurdle" class="md-nav__link">
+    <span class="md-ellipsis">
+      [2025-06-13] My First Real Hurdle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2025-06-13] My First Real Hurdle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-stat-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Stat Framework
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill-checks-as-expression" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skill Checks as Expression
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toward-integrity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Toward Integrity
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2025-06-11-first-day-of-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      [2025-06-11] First Day of Logging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2025-06-11] First Day of Logging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#early-discoveries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Early Discoveries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#early-experiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Early Experiments
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary.refined/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Glossary & Roadmap (Refined)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2025-07-12-a-solid-foundation" class="md-nav__link">
+    <span class="md-ellipsis">
+      [2025-07-12] A Solid Foundation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2025-07-12] A Solid Foundation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#states-vs-resilience" class="md-nav__link">
+    <span class="md-ellipsis">
+      States vs Resilience
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integrity-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrity System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#math-in-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      Math in Action
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#empowerment-mechanic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Empowerment Mechanic
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2025-06-13-my-first-real-hurdle" class="md-nav__link">
+    <span class="md-ellipsis">
+      [2025-06-13] My First Real Hurdle
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2025-06-13] My First Real Hurdle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-stat-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Stat Framework
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill-checks-as-expression" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skill Checks as Expression
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toward-integrity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Toward Integrity
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2025-06-11-first-day-of-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      [2025-06-11] First Day of Logging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[2025-06-11] First Day of Logging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#early-discoveries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Early Discoveries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#early-experiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Early Experiments
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="fateless-dungeon-devlog">Fateless Dungeon Devlog</h1>
+<p><em>A chronological record of building Fateless Dungeon. Start from the bottom for the earliest entries, or skim top-down for the latest updates.</em></p>
+<hr />
+<h2 id="2025-07-12-a-solid-foundation">[2025-07-12] A Solid Foundation</h2>
+<p><strong>Status:</strong> System Design<br />
+<strong>Focus:</strong> States, Resilience, and Integrity Math  </p>
+<p>After stepping back, I’ve built a clearer skeleton for the system. The big challenge: <em>how do you represent reality with math?</em> The answer isn’t exact replication—it’s giving the AI just enough to interpret narratively.</p>
+<h3 id="states-vs-resilience">States vs Resilience</h3>
+<ul>
+<li><strong>States</strong>: Combat (Body), Focus (Mind), Morale (Soul).<br />
+  • Floats from <code>0.0 – 1.0</code>, shifting with context.<br />
+  • Directly interpreted by AI.  </li>
+<li><strong>Resilience</strong>: A separate modifier, <em>not</em> bound to <code>0.0 – 1.0</code>.<br />
+  • Used in calculations, but hidden from AI.  </li>
+</ul>
+<p><strong>Why separate them?</strong> Because context changes how vulnerable or guarded a character feels, while resilience can still be influenced by other factors.</p>
+<h3 id="integrity-system">Integrity System</h3>
+<ul>
+<li>Core stats (Body, Mind, Soul) are broken into <strong>Capacity</strong> (0–1, % of “health”) and <strong>Threshold</strong> (sum of substats^5).  </li>
+<li>Example: Body at <code>0.33</code> with three equal substats → Threshold = <code>5.1</code>.  </li>
+<li>This lets damage scale realistically while keeping integrity dynamic.</li>
+</ul>
+<h3 id="math-in-action">Math in Action</h3>
+<ul>
+<li>Chance formula: <code>Strength / (Strength + Dexterity * Resilience)</code>  </li>
+<li>Example: Resilience 0.8 → ~55.6% chance to land a hit.  </li>
+<li>Damage formula: <code>(Strength / Dexterity) / (Threshold * Resilience)</code>  </li>
+<li>Example: ~0.245 integrity loss.</li>
+</ul>
+<h3 id="empowerment-mechanic">Empowerment Mechanic</h3>
+<p>Not all actions are stat-vs-stat. Sometimes, other traits empower you:<br />
+- Formula: <code>Result + sqrt(Strength * Faith) * State * 0.25</code><br />
+- High Morale = more impact; low Morale = less.<br />
+- Balanced by dealing damage to your own integrity (e.g., Soul or Body).  </p>
+<p>This is immersive: faith or will can push you further, but at personal cost.</p>
+<p><strong>Next step:</strong> Recreate these Google Sheet formulas into Python.</p>
+<hr />
+<h2 id="2025-06-13-my-first-real-hurdle">[2025-06-13] My First Real Hurdle</h2>
+<p><strong>Status:</strong> Conceptual Breakthrough<br />
+<strong>Focus:</strong> Core Stat Framework &amp; Skill Checks</p>
+<p>I realized Fateless Dungeon needs to capture the <em>essence of being human</em>. That’s Body, Mind, and Soul—with substats to define each.</p>
+<h3 id="core-stat-framework">Core Stat Framework</h3>
+<pre><code>🩻 BODY — Strength | Fortitude | Dexterity
+🧠 MIND — Intelligence | Memory | Willpower
+💖 SOUL — Empathy | Charisma | Faith
+</code></pre>
+<h3 id="skill-checks-as-expression">Skill Checks as Expression</h3>
+<ul>
+<li>In D&amp;D: pass/fail.  </li>
+<li>In Fateless Dungeon: floats create expression and nuance.  </li>
+<li>Example: Charisma + fancy dress = “seduction damage” vs Willpower.  </li>
+</ul>
+<p>The same math structure applies universally: persuasion, combat, intimidation—everything becomes a modular check.</p>
+<h3 id="toward-integrity">Toward Integrity</h3>
+<p>Health pools evolve into <strong>Integrity Vectors</strong>:<br />
+- Capacity = how close to failure.<br />
+- Resilience = how resistant to further harm.<br />
+- Works for Body, Mind, Soul.  </p>
+<p><strong>Example:</strong> A guard’s mental integrity shifts dynamically: persuasion lowers capacity, catching a lie raises resilience.</p>
+<p>Skill checks can also borrow from other stats:<br />
+- Willpower can empower Strength.<br />
+- Faith can empower lifting a rock if done for love or duty.  </p>
+<p>This modular, contextual system lays the groundwork for expressive play.</p>
+<hr />
+<h2 id="2025-06-11-first-day-of-logging">[2025-06-11] First Day of Logging</h2>
+<p><strong>Status:</strong> Project Kickoff<br />
+<strong>Focus:</strong> Philosophy &amp; Sandbox Test</p>
+<p>Hi, I’m August. This is my attempt to reinvent tabletop RPGs. I don’t have much programming experience—Python and LLMs are both new territory. But I believe in this idea.</p>
+<h3 id="early-discoveries">Early Discoveries</h3>
+<ul>
+<li>AI results depend on the full stack: high‑quality pretraining data/compute, solid alignment (SFT/RLHF/DPO or RLAIF), and good prompt architecture.  </li>
+<li>My local LLaMA is capable; the difference I noticed was largely about <strong>training/finetuning quality and prompting</strong>, not an inherent ceiling of open models.  </li>
+<li>For Fateless Dungeon to work, I need strong <strong>prompt architecture</strong> and a Python backend working in tandem.</li>
+</ul>
+<h3 id="early-experiments">Early Experiments</h3>
+<ul>
+<li>Strength scaled as a float: 0.0 (corpse) to 1.0 (godlike).  </li>
+<li>Sandbox combat test: Farmer vs Goblin trading blows.  </li>
+<li>Not much yet, but the framework is there.</li>
+</ul>
+<p>This is only the beginning—but even now, I can see the outline of something real.</p>
+<hr />
+<p><em>This page was originally authored by a human and later refined with AI-assisted tools.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
